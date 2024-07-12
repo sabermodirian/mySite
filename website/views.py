@@ -7,4 +7,4 @@ def http_test(request):
 
 
 def json_test(request):
-    return JsonResponse({'name': 'Saber SASA'})
+    return JsonResponse({'name': 'Saber_SASA'})
