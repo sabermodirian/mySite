@@ -3,14 +3,16 @@ from django.http import HttpResponse, JsonResponse
 
 
 def index_view(request):
-    return HttpResponse('<h1>"HELLO First Homepage created by Saber"</h1>')
+    return render(request,'website\index.html')
+
 
 
 def about_view(request):
-    return JsonResponse({'about': 'sABOUT SABER MODIRIAN'})
+    return render(request,'website\About.html')
+
 
 
 def contact_view(request):
-    return HttpResponse('<h1>"CONTACT TO First page of website"</h1>')
+    return render(request,'website\contact.html')
 
 
