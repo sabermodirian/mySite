@@ -83,9 +83,8 @@ MIDDLEWARE = [
 
 ]
 
-
+ 
 ROOT_URLCONF = 'mysite.urls'
-
 
 TEMPLATES = [
 
@@ -143,6 +142,11 @@ DATABASES = {
 
 
 def jls_extract_def():
+
+    a = 'django.contrib.auth.password_validation'
+    b = '.UserAttributeSimilarityValidator'
+    return a+b
+def jls_extract_def():
     a = 'django.contrib.auth.password_validation'
     b = '.UserAttributeSimilarityValidator'
     return a+b
@@ -199,9 +203,9 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
 
-
-# Default primary key field type
+# Default primary key field typee
 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
