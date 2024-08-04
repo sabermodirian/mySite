@@ -146,7 +146,9 @@ def jls_extract_def():
     a = 'django.contrib.auth.password_validation'
     b = '.UserAttributeSimilarityValidator'
     return a+b
-def jls_extract_def():
+
+
+def jls_extract_def2():
     a = 'django.contrib.auth.password_validation'
     b = '.UserAttributeSimilarityValidator'
     return a+b
@@ -204,6 +206,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'statics', 'medias'
+    ]
 
 # Default primary key field typee
 
