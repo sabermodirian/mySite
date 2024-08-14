@@ -9,3 +9,10 @@ class contact(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     
+    
+    class Meta:
+        ordering = ['-created_date']
+        # verbose_name = 'پیام'
+        # verbose_name_plural = 'پیام ها'
+    def __str__(self):
+        return self.name
