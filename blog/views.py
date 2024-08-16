@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from blog.models import post
 
 
@@ -10,7 +10,7 @@ def blog_view(request):
 def blog_single(request):
     return render(request, 'blog/blog-single.html')
 
-def test(request):
-    posts = post.objects.all()
-    context = {'posts':posts}
+def test(request, pid):
+    pst = get_object_or_404(post, pk=pid)
+    context = {'post':pst}
     return render(request,'test.html',context)
