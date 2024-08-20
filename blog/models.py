@@ -30,6 +30,9 @@ class post(models.Model):
     def __str__(self):
         return f"The Title of this POST '''{self.title }'''  is by ID = {self.id}"  
     
+    # def snippets(self):
+    #     return self.content[:200] + '. . . . . .'
+    
     
   
     
