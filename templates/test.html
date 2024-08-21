@@ -1,3 +1,4 @@
+{% load  blog_tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,25 +7,48 @@
     <title>Test</title>
   </head>
   <body>
-    <p>this is for Testing</p>
-    {{posts}}
-    ***********************************************************************************************************
-    {% for post in posts %}
-      {% if post.status == 0 %}
-        <P>Not published yet</P>
-      {% else %}
-        <h2>{{post.title}}</h2>
-        <p>{{post.content}}</p>
-        <small>{{post.published_date}}</small>
-      {% endif %}
+
+<H1>this is Hello World for Testing page</H1>
+    <p>function-1: {% function  %}</p>
+
+    <p>function-2: {% function 7 %}</p>
+
+    <p>minustwo-1: {% minustwo 1 %}</p>
+
+    <p>minustwo-2: {% minustwo 8 %}</p>
+
+    <p>minusone-1: {% minusone  %}</p>
+
+    <p>minusone-2: {% minusone 9 %}</p>
+
+    <p>totalposts-1: {% totalposts  %}</p>
+
+    <p>totalposts-2: {% totalposts as tp %}:<h1>{{tp}}</h1></p>
+
+    <p><h1>TotalPosts-3(Title :::):</h1> {% posts as ttlpstS %}</p>
+    {% for post in ttlpstS %}
+      <p><h3>{{post}}   :--_:_--:   {{post.title}}  </h3></p>
     {% endfor %}
-    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4
-    <!-- <p>{{name}}</p>
-    <p>{{family_name}}</p>
-    <p>{{published_date}}</p>
-    <p>{{age}}</p> -->
-    <!-- <p>{{pid}}</p> -->
-     <P>{{post.title}}</P>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    ;; {{posts}}
+    ;; ***********************************************************************************************************
+    ;; {% for post in posts %}
+    ;;   {% if post.status == 0 %}
+    ;;     <P>Not published yet</P>
+    ;;   {% else %}
+    ;;     <h2>{{post.title}}</h2>
+    ;;     <p>{{post.content}}</p>
+    ;;     <small>{{post.published_date}}</small>
+    ;;   {% endif %}
+    ;; {% endfor %}
+    ;; $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4
+    ;; <!-- <p>{{name}}</p>
+    ;; <p>{{family_name}}</p>
+    ;; <p>{{published_date}}</p>
+    ;; <p>{{age}}</p> -->
+    ;; <!-- <p>{{pid}}</p> -->
+    ;;  <P>{{post.title}}</P>
     
 
   </body>
