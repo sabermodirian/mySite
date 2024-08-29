@@ -28,3 +28,13 @@ def totalposts():
     posts = post.objects.filter(status=1)
     return posts
 
+@register.filter
+def snippet(value,arg=33):
+    return value[:arg]+'.....'
+
+@register.inclusion_tag('popularposts.html')
+def popularposts():
+    posts = post.objects.filter(status=1).order_by('published_date')[:2]
+    return {'posts':posts}
+    
+    
