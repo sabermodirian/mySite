@@ -32,9 +32,13 @@ def totalposts():
 def snippet(value,arg=33):
     return value[:arg]+'.....'
 
-@register.inclusion_tag('popularposts.html')
-def popularposts():
-    posts = post.objects.filter(status=1).order_by('published_date')[:2]
+# @register.inclusion_tag('popularposts.html')
+# def popularposts():
+#     posts = post.objects.filter(status=1).order_by('published_date')[:2]
+#     return {'posts':posts}
+  
+    
+@register.inclusion_tag("blog/blog-popular-posts.html")
+def latestposts(arg=3):
+    posts = post.objects.filter(status=1).order_by('-published_date')[:arg]
     return {'posts':posts}
-    
-    
