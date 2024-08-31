@@ -2,8 +2,10 @@ from django.shortcuts import render , get_object_or_404
 from blog.models import post
 
 
-def blog_view(request):
+def blog_view(request,cat_name=None):
     posts = post.objects.filter(status=1)
+    if cat_name:
+        posts = posts.filter(category__name=cat_name)
     contex = {'posts':posts}
     return render(request, 'blog/blog-home.html',contex)
 
