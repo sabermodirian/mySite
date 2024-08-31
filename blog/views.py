@@ -13,6 +13,15 @@ def blog_single(request, pid):
     context = {'post':pst}
     return render(request, 'blog/blog-single.html',context)
 
+def blog_category(request,cat_name):
+    posts = post.objects.filter(status=1)
+    posts = posts.filter(category__name=cat_name)
+    context = {'posts':posts}
+    return render(request,'blog/blog-home.html',context)
+    
+    
+
+
 # def test(request, pid):
 #     pst = get_object_or_404(post, pk=pid)
 #     context = {'post':pst}
