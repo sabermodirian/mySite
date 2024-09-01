@@ -23,8 +23,16 @@ def blog_category(request,cat_name):
     context = {'posts':posts}
     return render(request,'blog/blog-home.html',context)
     
-    
+def blog_search(request):
+   # print(request.__dict__)    
+    #query = request.GET.get('q')
+    posts = post.objects.filter(status=1)
+    if request.method == 'GET':
+        if s:= request.GET.get('s'):#  Used python Warlus operator
+            posts = posts.filter(content__contains=s)#  Used python Warlus operator
 
+    context = {'posts':posts}
+    return render(request, 'blog/blog-home.html', context)    
 
 # def test(request, pid):
 #     pst = get_object_or_404(post, pk=pid)
