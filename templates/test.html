@@ -4,11 +4,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
-    <title>Test</title>
+    <title>Form Test</title>
   </head>
   <body>
+    <p>Title of test_view for contact forms   </p>
+
+        <form action="{% url 'website:test' %}" method='post' >
+          {% csrf_token %}
+             <label>name: </label>
+             <input name="name" type="text"><br><br>
+             <label>email: </label>
+             <input name="email" type="email"><br><br>
+             <label>subject: </label>
+             <input name="subject" type="text"><br><br>
+             <label>message: </label>
+             <input name="message" type="text"><br><br>
+
+             <button type='submit' >SUBMIT </button>
+        </form>
+
+
+
+    <p>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</p>
+    <p>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+
 <p>Title of Popular Posts::   </p>
-{% popularposts %}
+{% comment %} {% popularposts %} {% endcomment %}
 
 <p>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</p>
 
