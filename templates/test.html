@@ -11,22 +11,8 @@
 
         <form action="{% url 'website:test' %}" method='post' >
           {% csrf_token %}
-              {% comment %} <label>name: </label>
-             <input name="name" type="text"><br>
-             <br>  {% endcomment %}
 
-            {{form}}
-
-             {% comment %} <label>email: </label>
-             <input name="email" type="email"><br>
-             <br>
-             <label>subject: </label>
-             <input name="subject" type="text"><br>
-             <br>
-             <label>message: </label>
-             <input name="message" type="text"><br>
-             <br> {% endcomment %}
-
+            {{form.as_p}}
              <button type='submit' >SUBMIT </button>
         </form>
 
