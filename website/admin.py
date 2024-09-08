@@ -1,5 +1,5 @@
 from django.contrib import admin
-from website.models import contact
+from website.models import contact , NewsLetter
 
 
 # Register your models here.
@@ -11,3 +11,4 @@ class contactAdmin(admin.ModelAdmin):
     empty_value_display = '-empty-'
     
 admin.site.register(contact, contactAdmin)
+admin.site.register(NewsLetter)

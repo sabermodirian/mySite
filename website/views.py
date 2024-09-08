@@ -1,19 +1,33 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from website.models import contact
-from website.forms import NameForm , ContactForm
-
+from website.forms import NameForm , ContactForm , NewsLetterForm
 
 def index_view(request):
-    return render(request, 'website\index.html')
-
+    return render(request , 'website\index.html')
 
 def about_view(request):
-    return render(request, 'website\About.html')
-
+    return render(request , 'website\About.html')
 
 def contact_view(request):
-    return render(request, 'website\contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+    form = ContactForm()   
+    return render(request ,'website/contact.html',{'form': form})     
+           
+def newsletter_view(request):
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/') #redirect to homepage.html
+    else:
+        return HttpResponseRedirect('/')
+        
+                
+    #return render(request ,'website/NewsLetter.html')    
 
 # from django.views.decorators.csrf import csrf_protect
 
@@ -27,15 +41,11 @@ def test_view(request):
             # email = form.cleaned_data['email']
             # subject = form.cleaned_data['subject']
             # message = form.cleaned_data['message']
-            
             #print(name, email, subject, message)
-            
             form.save()
             return HttpResponse('Form submitted successfully')
         else:
             return HttpResponse('Form is not valid')
-    
-    
     # form = NameForm() 
     form = ContactForm()
     return render(request, 'test.html', {'form': form})  
