@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from website.models import contact
 from website.forms import NameForm , ContactForm , NewsLetterForm
+from django.contrib import messages as msg
 
 def index_view(request):
     return render(request , 'website\index.html')
@@ -14,6 +15,12 @@ def contact_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            msg.add_message(request, msg.SUCCESS, 'Form submitted successfully')
+            #msg.success(request, "Form submitted successfully.")
+        else:
+            msg.add_message(request, msg.ERROR, 'Form is not valid')
+            #msg.ERROR(request, 'Form is not valid')
+
     form = ContactForm()   
     return render(request ,'website/contact.html',{'form': form})     
            
@@ -22,9 +29,13 @@ def newsletter_view(request):
         form = NewsLetterForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/') #redirect to homepage.html
+            msg.add_message(request, msg.SUCCESS, 'Form submitted successfully')
+        else:
+            msg.add_message(request, msg.ERROR, 'Form is not valid')    
+            
+            #return HttpResponseRedirect('/') #redirect to homepage.html
     else:
-        return HttpResponseRedirect('/')
+        return HttpResponseRedirect('/') 
         
                 
     #return render(request ,'website/NewsLetter.html')    
