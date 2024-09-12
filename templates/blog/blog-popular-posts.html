@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <div class="single-sidebar-widget popular-post-widget">
     <h4 class="popular-title">Popular Posts</h4>
     <div class="popular-post-list">
@@ -12,6 +13,13 @@
                 
               </a>
               <p>{{post.published_date|date:"d M Y"}}</p>
+              <p>{{4500000|intcomma}} </p>
+              <p>{{9|apnumber}} </p>
+              <p>{{post.published_date|naturaltime}} </p>
+              {% comment %} <p>{{10|apnumber}} </p>
+              <p>{{12300000|intword}} </p>
+             
+              <p>{{23|ordinal}} </p> {% endcomment %}
             </div>
           </div>
         {% endfor %}
