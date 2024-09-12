@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django_extensions',
-
+    'django.contrib.sites',
     
     'website.apps.WebsiteConfig',
     
@@ -70,6 +70,7 @@ INSTALLED_APPS = [
 
 ]
 
+SITE_ID = 2
 
 MIDDLEWARE = [
 
