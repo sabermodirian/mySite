@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'robots',
     
     'website.apps.WebsiteConfig',
     
@@ -71,7 +72,11 @@ INSTALLED_APPS = [
 
 ]
 
-SITE_ID = 2
+SITE_ID = 2 # sites framework
+
+ROBOTS_USE_HOST = False    # robots.txt DisAllow HostName
+ROBOTS_USE_SITEMAP = False  # robots.txt DisAllow Sitemap
+
 
 MIDDLEWARE = [
 
@@ -141,7 +146,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
 
     }
-
 }
 
 # Password validation
