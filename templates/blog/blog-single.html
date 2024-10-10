@@ -31,29 +31,15 @@
 								</div>
 								<div class="col-lg-3  col-md-3 meta-details">
 									<ul class="tags">
+										{% for cat in post.category.all %}
 										<li>
-										   <a href="#">
-											<!-- commented tag Area 
-											    {{ post.category.all|join:", " }} 
-
-												or
-
-												{% for cat in post.category.all %}
-												{{cat.name}}
-												{% if not forloop.last %},{% endif %}
-												{% endfor %}  
-													
-												or
-											commented tag Area-->
-
-												{% autoescape on %}
-												{{ post.category.all|join:", "|escape }}
-												{% endautoescape %} 				
-												
-										   </a>
+										  <a href="{% url 'blog:category' cat_name=cat.name %}"
+											>{{cat.name}}</a>
+						  
+											{% if not forloop.last %},{% endif %}
 										</li>
-										
-									</ul>
+										{% endfor %}
+									  </ul>
 									<div class="user-details row">
 										<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{post.author.get_full_name}}</a> <span class="lnr lnr-user"></span></p>
 										<p class="date col-lg-12 col-md-12 col-6"><a href="#">{{post.published_date|date:"D _d /M /Y"}}</a> <span class="lnr lnr-calendar-full"></span></p>
@@ -231,51 +217,13 @@
 								</div>
 							
 							{% include 'blog/blog-writer.html' %} <!-- blog-writer.html -->
-
+                            
 							{% latestposts %}
 
 							{% include 'blog/blog-ads.html' %}
 
-							{% postcategories %}		
-								<div class="single-sidebar-widget newsletter-widget">
-									<h4 class="newsletter-title">Newsletter</h4>
-									<p>
-										Here, I focus on a range of items and features that we use in life without
-										giving them a second thought.
-									</p>
-									<div class="form-group d-flex flex-row">
-									   <div class="col-autos">
-									      <div class="input-group">
-									        <div class="input-group-prepend">
-									          <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
-											</div>
-									        </div>
-									        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" >
-									      </div>
-									    </div>
-									    <a href="#" class="bbtns">Subcribe</a>
-									</div>	
-									<p class="text-bottom">
-										You can unsubscribe at any time
-									</p>								
-								</div>
-								<div class="single-sidebar-widget tag-cloud-widget">
-									<h4 class="tagcloud-title">Tag Clouds</h4>
-									<ul>
-										<li><a href="#">Technology</a></li>
-										<li><a href="#">Fashion</a></li>
-										<li><a href="#">Architecture</a></li>
-										<li><a href="#">Fashion</a></li>
-										<li><a href="#">Food</a></li>
-										<li><a href="#">Technology</a></li>
-										<li><a href="#">Lifestyle</a></li>
-										<li><a href="#">Art</a></li>
-										<li><a href="#">Adventure</a></li>
-										<li><a href="#">Food</a></li>
-										<li><a href="#">Lifestyle</a></li>
-										<li><a href="#">Adventure</a></li>
-									</ul>
-								</div>								
+{% postcategories %}								
+			                {% include 'blog/blog-tags.html' %}
 							</div>
 						</div>
 					</div>
