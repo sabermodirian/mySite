@@ -218,12 +218,16 @@
 							
 							{% include 'blog/blog-writer.html' %} <!-- blog-writer.html -->
                             
-							{% latestposts %}
+							{% include 'blog/blog-tags.html' %}
+							
 
-							{% include 'blog/blog-ads.html' %}
+                            {% postcategories %} 
+				{% comment %} # blog-post-categories.html								 {% endcomment %}
+			                		
+							{% latestposts %} 
+				{% comment %} # blog-popular-posts.html {% endcomment %}
 
-{% postcategories %}								
-			                {% include 'blog/blog-tags.html' %}
+				            {% include 'blog/blog-ads.html' %}
 							</div>
 						</div>
 					</div>

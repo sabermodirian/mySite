@@ -187,13 +187,19 @@
         <div class="widget-wrap">
             {% include 'blog/blog-search.html' %}
             {% include 'blog/blog-writer.html' %}
+           
             {% postcategories %} 
+            {% comment %} # blog-post-categories.html {% endcomment %}
             
+            {% comment %} newsletter {% endcomment %}
+            
+            {% comment %} {% include 'blog/blog-tags.html' %} {% endcomment %}
+           
             {% include 'blog/blog-popular-posts.html' %} 
-            {% include 'blog/blog-ads.html' %}
+            {% comment %} # latestposts  {% endcomment %}
 
-          {% comment %} newsletter {% endcomment %}
-           {% include 'blog/blog-tags.html' %} 
+            {% include 'blog/blog-ads.html' %}
+            
         </div>
       </div>
     </div>

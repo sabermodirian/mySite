@@ -3655,12 +3655,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .widget-wrap .popular-post-widget .popular-post-list .thumb img {
-  width: 100%;
-  max-width: 100px;
+  width: 70%;
+  max-width: 70px;
 }
 
 .widget-wrap .popular-post-widget .single-post-list {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .widget-wrap .popular-post-widget .single-post-list .details {
