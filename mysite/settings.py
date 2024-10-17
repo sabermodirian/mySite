@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'robots',
     "debug_toolbar",
     "taggit",
+    "django_summernote",
 
     'website.apps.WebsiteConfig',
     
@@ -242,3 +243,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
