@@ -48,6 +48,8 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    
+    'multi_captcha_admin',
 
     'django.contrib.admin',
 
@@ -68,6 +70,10 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "taggit",
     "django_summernote",
+    "captcha", 
+    
+    
+    
 
     'website.apps.WebsiteConfig',
     
@@ -80,6 +86,11 @@ SITE_ID = 2 # sites framework
 ROBOTS_USE_HOST = False    # robots.txt DisAllow HostName
 ROBOTS_USE_SITEMAP = False  # robots.txt DisAllow Sitemap
 
+
+# Captcha Admin Setting
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
 
 MIDDLEWARE = [
 
