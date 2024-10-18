@@ -9,3 +9,5 @@ installed pip==24.2 #Successfully
 installed django-robots==6.1
 django-taggit-6.1.0 
 django-summernote-0.8.20.0 #Successfully 
+django-simple-captcha
+django-multi-captcha-admin 

@@ -73,8 +73,6 @@ INSTALLED_APPS = [
     "captcha", 
     
     
-    
-
     'website.apps.WebsiteConfig',
     
     'blog'
