@@ -48,7 +48,13 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_date']
+    def __str__(self):
+        return f"The Comment of'''{self.post.title }'''  is by Name = {self.name}"
     
+
     
     
 
