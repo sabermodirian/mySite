@@ -1,7 +1,8 @@
 from django.shortcuts import render , get_object_or_404
 from blog.models import post , Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from blog.forms import CommentForm
+from django.contrib import messages as msg
 
 def blog_view(request, **kwargs):
     posts = post.objects.filter(status=1)
@@ -23,10 +24,20 @@ def blog_view(request, **kwargs):
     return render(request, 'blog/blog-home.html',contex)
 
 def blog_single(request, pid):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            #from django.contrib import messages as msg
+             form.save()
+             msg.add_message(request, msg.SUCCESS, 'Your Comment Submited Succesfully')
+        else:
+             msg.add_message(request, msg.ERROR, 'Your Comment Didn,t Submited!!!') 
+                
     posts = post.objects.filter(status=1)
     pst = get_object_or_404(posts, pk=pid )
-    comments = Comment.objects.filter(post=pst.id, approved=True)#.order_by('-created_date')
-    context = {'post':pst , 'comments':comments}
+    comments = Comment.objects.filter(post=pst.id, approved=True)#.order_by('-created_date')   
+    form = CommentForm()
+    context = {'post':pst , 'comments':comments , 'form':form}
     return render(request, 'blog/blog-single.html',context)
 
 def blog_category(request,cat_name):
