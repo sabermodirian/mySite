@@ -71,11 +71,9 @@ INSTALLED_APPS = [
     "taggit",
     "django_summernote",
     "captcha", 
-    
-    
     'website.apps.WebsiteConfig',
-    
-    'blog'
+    'blog',
+    'accounts',
 
 ]
 
