@@ -1,17 +1,45 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In</title>
+
+    <!-- Add CSS File -->
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
 </head>
 <body>
-    <p>Login Page</p>
+    
+    <div class="container">
+        <form action="{% url 'accounts:login' %}" method="post">
+            
+                {% csrf_token %}
+            <h3 class="title">Login</h3>
+       
+            <div class="field">
+                <label for="username">Username:</label>
+                
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </div>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="field-checkbox">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
 
-    {% if request.user.is_authenticated %}
-       <p>user is authenticated as {{request.user.username}}</p>
-    {% else %}
-       <p>user is not authenticated</p>
-    {% endif %}
+
+            <!-- Submit Button -->
+            <button>LOGIN</button>
+        </form>
+        <p>Doesn't have an account? <a href="/">Create One</a></p>
+    </div>
+    <footer>Powered by  Saber Modirian</footer>
 </body>
 </html>
