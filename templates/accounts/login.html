@@ -16,12 +16,17 @@
     
     <div class="container">
         <form action="{% url 'accounts:login' %}" method="post">
-            
              {% csrf_token %}
-            <h3 class="title">Please Sign In</h3>
-       
-            {{ form.as_p }}
-         
+           
+             <h3 class="title">Please Sign In</h3>
+            <div class="field">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </div>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
             <div class="field-checkbox">
                 <input type="checkbox" name="remember" id="remember">
                 <label for="remember">Remember Me</label>
