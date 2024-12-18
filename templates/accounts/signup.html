@@ -1,11 +1,49 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+
+    <!-- Add CSS File -->
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
 </head>
 <body>
     
+    <div class="container">
+        <form action="{% url 'accounts:signup' %}" method="post">
+             {% csrf_token %}
+           
+             <h3 class="title">Please Sign Up</h3>
+             
+            <div class="field">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </div>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input type="password" name="password1" id="password" placeholder="Enter your password">
+            </div>
+            <div class="field">
+                <label for="password">Confirm Password:</label>
+                <input type="password" name="password2" id="password" placeholder="Enter your same password again!">
+            </div>
+            
+            <div class="field-checkbox">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+
+
+            <!-- Submit Button -->
+            <button>SignUp</button>
+        </form>
+        <p>Doesn't have an account? <a href="/">Create One</a></p>
+    </div>
+    <footer>Powered by  Saber Modirian</footer>
 </body>
 </html>
